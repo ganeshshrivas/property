@@ -1,0 +1,15 @@
+<div class="abody">
+<h1>Publish your property</h1>
+
+<% if params[:ptype]== 'villa' %>
+<div class="dis" id =villa><%= render 'villa' %><hr> </div>
+<% elsif params[:ptype]== 'flat' %>
+<div class="dis" id =flat><%= render 'flat' %><hr> </div>
+<% elsif params[:ptype]== 'appartment' %>
+<div class="dis" id =appartment ><%= render 'appartment' %><hr></div> 
+<% elsif params[:ptype]== 'land' %>
+<div class="dis" id =land > <%= render 'land' %> <hr></div> 
+<% end %>
+<%= link_to 'Back', estates_path %>
+</div>
+

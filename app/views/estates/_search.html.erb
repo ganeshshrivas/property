@@ -1,0 +1,51 @@
+    <div class="psearch">
+      Search
+      <%= form_for '', url: 'search', method: :post  do |f| %>
+        
+        <%= f.select :select, [['All','all_prop'],['Villa','villa'],['Flat','flat'],['Appartment','appartment'],['Land','land']], :class=>'sfield' %>
+        <br>  
+
+        <%= f.text_field :address, :class=>'sfield', :id=>'autocomplete',:placeholder=>'Enter city name' %>
+        
+        <%= f.hidden_field :req_page, :value => @page %>
+        <%= f.hidden_field :p_lat, :value =>'' ,id: 'cityLat' %>
+        <%= f.hidden_field :p_lng, :value =>'' ,id: 'cityLng' %>
+        <br>
+        <%= f.submit :'Search', class:'sfield', id:'s_submit',:disabled => true %>
+        <% end %>
+        <% if @res.present? %>
+        <div><%= @res  %></div>
+        <% end %>
+
+        
+    </div>
+
+<script>
+// for address auto complete
+var placeSearch, autocomplete;
+
+function enablesubmit(){
+//  alert("text")
+
+  $('#s_submit').prop('disabled', false);
+}
+
+function initializ() {
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+      { types: ['geocode'] });
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+//    document.getElementById(s_submit).disabled = enabled;
+  var place = autocomplete.getPlace();
+  document.getElementById('cityLat').value = place.geometry.location.lat();
+  document.getElementById('cityLng').value = place.geometry.location.lng();
+ 
+  enablesubmit();  
+
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initializ);
+
+
+ </script>

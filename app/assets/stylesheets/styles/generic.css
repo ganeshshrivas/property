@@ -1,0 +1,470 @@
+
+.indexslider img:hover{
+#  transform:scale(1.25);
+#  transition: all 1s ease;
+}
+
+.close-icon{
+  height:40px; 
+  width:40px;
+  
+#  margin-right: 10px;
+  position: absolute;
+  margin-left: 90%;
+  float: right;
+}
+
+.ssldier{
+	width: 300px;
+	overflow: hidden;
+}
+ .sfield, #welcome_select{
+
+ # width:90%;
+  margin-top: 20px;
+ 
+ }
+
+
+.upArrow{
+	height: 50px;
+	width: 50px;
+	float: right;
+	margin: 10px;
+}
+
+.upArrow:hover{
+	text-transform: 
+}
+
+.psearch{
+position: relative;
+height: auto;
+width: auto;
+float: left;    
+     }
+
+.index_search .psearch{
+    margin-left: auto;
+    margin-top:-15px;
+    position: relative;
+
+}
+
+
+
+.createprop{
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 30px;
+  position: relative;
+}
+.sel_element{
+margin-left: 100px;
+width: 200px;
+position: absolute;
+#background: url("back-water.jpg");
+background: rgba(50,50,50,.9);
+color: rgba(250,250,250,.9);
+width: 200px;
+
+# transition: all 2s ease;
+z-index: 200;
+#font-size: 20px;
+overflow: hidden;
+}
+
+.sel_element header_ul{
+  width: 0px;
+}
+
+
+.s_element{
+  transition: all 1s ease;
+  width: 100px;
+  z-index: 20;
+  background-color: inherit; 
+  color: rgba(200,200,255,0.9);
+
+
+}
+
+#s_submit{
+  disabled;
+}
+.s_element:hover{
+color: rgba(10,10,100,0.9);
+background: rgba(200,200,255,0.9);
+
+transition: all 1s ease;
+}
+.header_ul{
+  list-style-type:none;
+#  width: 100px;
+}
+
+.item1{
+#  width: 200px;
+}
+
+ .image{
+  width: 800px;
+  height: 350px;
+ }
+
+.infoWindow
+{
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+
+
+/* info window content */
+
+.info_pic{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+}
+
+.mapimage{
+  width: 100%;
+  height: 100%;
+}
+
+
+ .bodyContent{
+  margin-top: 50%;
+  width: 200px;
+  height: 50%;
+  font-size: 10px;
+  background: rgba(200,200,200,.5);
+  position: absolute;
+  color: rgba(0,0,0,1);
+  overflow: hidden;
+ }
+
+/* info window content end */
+
+
+.aback{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+#  background: url("blue.jpg");
+  background-size: 150%;
+  z-index: -10;
+  opacity: .5;
+}
+.show_page{
+  position: relative;
+  width: 45%;
+  float: left;
+  overflow: auto;
+  padding-right: 5%;
+
+
+}
+.showimage{
+  width: 100%;
+#  height: 100%;
+  position: relative;
+}
+
+html, body{
+  margin: 0px;
+  height: 100%;
+  width:100%;
+}
+
+
+
+
+ .marq{
+    overflow: hidden;
+    width: 300px;
+ }
+ 
+
+
+a:link { 
+  font-size: 20px;
+  color: blue;
+  text-decoration: underline;
+}
+a:visited { 
+  color: rgba(20,20,20,1);
+  
+}
+a:active { 
+  color: rgba(10,10,10,10,.5);
+#  background: rgba(100,100,100,100,.5);
+}
+ a:hover{
+  background: transparent;
+  color: rgba(100,100,100,1);
+#  padding-left: 2px;
+#  padding-right: -2px;
+  text-decoration: none;
+ }
+
+
+
+ .bkimag{
+  z-index: -9;
+  position: fixed;
+  opacity: .3;
+  width: 100%;
+  height: 1000%;
+  background: url("back.jpg");
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  background-attachment: scroll;
+ 
+ }
+
+ .headlinks{
+  font-size: 20px;
+  margin-left: 50px;
+  position: relative;
+  
+
+ }
+
+ .welcomelink{
+    font-size: 59px;
+    margin-top: 142px;
+    z-index: 1;
+    position: fixed;
+    background: transparent;
+ }
+.logo{
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 50px;
+  height: 30px;
+  position: relative;
+  
+}
+.logo1{
+ # padding-left: 10px;
+  width: 50px;
+  height: 30px;
+  
+}
+
+.headtx{
+  color: -moz-ButtonHoverFace;
+  font-size: 150%;
+}
+.login{
+ margin-left: 100px; 
+ float:right;
+ font-size: 25px;
+ }
+ .sin{
+  float:right;
+  margin-right: 20px;
+ }
+ 
+#head{
+  margin-top: 0px;
+  background-color: rgba(100,100,100,.9);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height:9%;
+  min-height: 50px;
+  color: rgba(250,200,200,1);
+  padding-left: 0px;
+  padding-top: 0px;
+ 
+}
+.headback{
+  position: relative;
+  height: 100px;
+ }
+ 
+
+
+#panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+
+      .image{
+        position: relative;
+      }
+
+
+.appimage {
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  background-color: rgba(5,50,150,0.05);
+  
+  
+}
+
+
+
+
+table{
+  margin-left: 20px
+  
+}
+.index_estate_listing
+{
+#    margin-top: -35px;
+#    position: absolute;
+#    margin-left: 20%;
+#    opacity: 0.9;
+#    width: 80%;
+#    height: 90%;
+#   line-height: 15px;
+#    margin-right: auto;
+#    padding-top: 20px;
+#    transition: all .1s ease;
+#   overflow: auto;
+#    background: rgba(230,230,230,.9);
+  
+}
+
+
+ 
+.main{
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+#    overflow: auto;
+    padding: 5px;
+#    border-bottom: outset;
+    overflow: auto;
+#    box-shadow: 10px 10px 5px #888888;
+#    max-height: 300px;
+    font-size: auto;
+}
+
+.index_pic_size{
+  height:200px;
+  width:100%
+}
+
+.index_property_content{
+width: 50%;
+float: left;
+position: relative;
+height: 100%;
+}
+
+.property_pic
+{
+  width: 50%;
+  float: left;
+  position: relative;
+  height:100%;
+}
+
+
+.pass{
+transition: all 1 ease;
+
+}
+
+.pass:click{
+transition: all 2s ease;
+padding-top: 20px;
+font-size: 120%;
+}
+.elem{
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  z-index: 10;
+  color: white;
+  padding-top: 20px;
+  background-color: rgba(100,100,100,.9);
+}
+
+
+
+#sin{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+}
+
+
+# map css
+
+  #map-canvas {
+        height: 1000px;
+        margin: 0px;
+        padding: 0px;
+        z-index: -1;
+      }
+      .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        padding: 0 11px 0 13px;
+        width: 400px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        text-overflow: ellipsis;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+        margin-left: -1px;
+        padding-left: 14px;  /* Regular padding-left + 1. */
+        width: 401px;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      .index_bxslider
+      {
+        height: 400px;
+ #       width: 100px;
+      }

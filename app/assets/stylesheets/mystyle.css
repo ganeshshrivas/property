@@ -1,0 +1,114 @@
+.menu ul li ul li 
+{
+#  min-height:50px;
+ 
+}
+
+.menu ul li ul li:hover 
+{
+#  min-height:50px;
+  z-index: 9999;
+ 
+}
+
+
+#footer{
+  width: 100%;
+}
+.column1{
+width:30%;
+
+}
+.column4{
+width:60%;
+
+}
+
+
+
+
+#main_container{
+width:100%;
+height: 100%;
+height:auto;
+#min-height: 50%;
+width:100%;
+}
+
+
+
+
+#main_content{
+width:90%;
+-webkit-box-shadow: 0px 0px 15px 9px rgba(134,129,131,.5);
+-moz-box-shadow: 0px 0px 15px 9px rgba(134,129,131,.5);
+box-shadow: 0px 0px 15px 9px rgba(134,129,131,.5);
+height: 100%;
+padding: 10px;
+#border: groove;
+ overflow: hidden;
+}
+
+#header{
+  width: 100%;
+}
+
+
+
+
+.welcome_wrapper{
+  height: 100%;
+  width: 100%;
+}
+
+
+.type_sel {
+	border: none;
+	text-align: center;
+  line-height: 25px;
+  height: inherit;
+  font-size: 11px;
+  height: 100%;
+#  padding: 0 21px 0 17px;
+  text-decoration: none;
+
+    background: none repeat scroll 0 0 #267cb2;
+    color: #fff;
+    width: 12em;
+    bottom: none;
+}
+
+
+#header{
+	padding-bottom: 20px;
+
+}
+
+.type_sel:hover{
+  color:#fff;
+  background:#3da1e0;
+  z-index: 100;	
+}
+
+.bx-controls-direction{
+  opacity: .2;
+}
+.bx-wrapper:hover .bx-controls-direction{
+  opacity: .9;
+}
+
+
+.show_property{
+  max-height: 500px;
+#  overflow: auto;
+  width: 100%;
+}
+
+.column4
+{
+#  margin-top: 100px;
+}
+
+.header{
+  z-index: 2;
+}

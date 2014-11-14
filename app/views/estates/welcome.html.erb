@@ -1,0 +1,103 @@
+<% content_for :head do %>
+  <style>
+  #head{
+  position: relative;
+}
+  
+#map-canvas{
+height:100%;
+max-height: 100%;
+width: 100%;
+min-height: 400px;
+position: relative;
+}
+
+body{
+  padding: 0 0 0px;
+
+}
+
+</style>
+<% end %>
+
+<div class="welcome_search">
+  <%= render 'search'%> 
+</div>
+
+<div id="map-canvas" ></div>
+
+
+<script>
+var LocationData = [
+    <% @estates.each do |estate| %>
+    [<%= estate.latitude %>,
+     <%= estate.longitude %>,
+     '<%= estate.ptype %>', 
+     "<h1><%=estate.ptype%></h1><table><% unless estate.ptype =='land' %><tr><td><strong>Bedrooms</strong></td><td>:<%= estate.bedroom %></td></tr><tr><td><strong>Halls</strong></td><td>:<%= estate.hall %></td></tr><% end %><tr><td><strong>Area</strong></td><td>:<%= estate.area %>squire meter</td></tr> </table> ", 
+     '',
+     '<a HREF ="estates/<%= estate.id%>" data-no-turbolink=true>Details</a>',
+     '<% if estate.pictures.present? %><% estate.pictures.each do |pic| %><li><%= image_tag(pic.avatar.thumb,:class=>"mapimage") %></li> <% end %> <% end %>'
+     ],
+    <% end %>
+  
+];
+ 
+function initialize()
+{
+    var r = 10;
+    var mapOptions = {
+      scrollwheel: false,
+      mapTypeId: 'terrain'
+    }
+    var map =
+        new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+    var bounds = new google.maps.LatLngBounds();
+//    map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+    var infowindow = new google.maps.InfoWindow();
+    <% if @plat.present? %> 
+    <% for k in 1..2%>
+    var latlng = new google.maps.LatLng(<%= @plat.to_f %>,<%= @plng.to_f + 0.05*(2*k - 3) %>);
+    bounds.extend(latlng);
+
+    <% end %>
+    <% end %>
+    for (var i in LocationData)
+    {
+        var p = LocationData[i];
+        var latlng = new google.maps.LatLng(p[0], p[1]);
+        bounds.extend(latlng);
+         
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+        });
+
+     google.maps.event.addListener(marker, 'click', (function(map, mm, tt, pic, link, imag) {
+    return function() {
+          var ttstring = '<div class="infoWindow">'+'<div class="info_pic">'+'<ul class="bxslider">'+ imag+'</ul>' + '</div>' + '<div class="bodyContent">'+ link+ tt +'</div>'+'</div>';
+        
+        infowindow.setContent(ttstring);
+        maxWidth: 100;
+        infowindow.open(map, mm);
+          $('.bxslider').bxSlider({
+  auto: true,
+  autoControls: true,
+   });  
+            }
+})(map, marker, p[3], p[4], p[5], p[6]));
+    }
+
+    map.fitBounds(bounds);
+}
+ 
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<script>    
+  $(document).ready(function(){
+  $('.bxslider').bxSlider({
+  auto: true,
+  });
+
+});
+</script>
+

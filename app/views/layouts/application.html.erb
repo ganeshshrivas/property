@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Property</title>
+<%= favicon_link_tag 'title-icon.ico' %>
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+<body>
+
+<!-- new header start   -->
+<span class="header">
+<%= render 'layouts/header' %>
+</span> 
+ <!-- new header closed-->
+
+<div id="main_container">
+<div id="main_content"> 
+
+
+
+<%= yield %>
+
+  </div>
+    <!-- end of main_content -->
+</div>    
+<%= render 'layouts/footer' %>
+
+
+<!-- end of main_container -->
+
+</body>
+</html>

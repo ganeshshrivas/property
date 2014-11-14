@@ -1,0 +1,18 @@
+<h1>Editing your post</h1>
+
+<% if @type =="villa" %>
+<%= render 'villa' %>
+
+<% elsif @type =="flat" %>
+<%= render 'flat' %>
+
+<% elsif @type =="appartment" %>
+<%= render 'appartment' %>
+
+<% elsif @type =="land" %>
+<%= render 'land' %>
+<% end %>
+
+
+<%= link_to 'Show', @estate,  'data-no-turbolink' => true %> |
+<%= link_to 'See all property', estates_path %>

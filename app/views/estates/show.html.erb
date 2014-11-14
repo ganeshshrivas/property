@@ -1,0 +1,198 @@
+<% content_for :head do %>
+  
+  <style>
+#map-canvas {
+        height: 100%;
+        min-height: 300px;
+
+      }
+
+    </style>
+
+
+    <script>
+function initialize() {
+  
+  var mapOptions = {
+    scrollwheel: false,
+    center: new google.maps.LatLng(<%= @estate.latitude %>, <%= @estate.longitude %>),
+    zoom: 18,
+    mapTypeId: google.maps.MapTypeId.SATELLITE,
+    heading: 90,
+    tilt: 45
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    map: map,
+    title: 'Click to zoom'
+  });
+
+  google.maps.event.addListener(map, 'center_changed', function() {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+    window.setTimeout(function() {
+      map.panTo(marker.getPosition());
+    }, 30000);
+  });
+  var i = 12  ;
+  google.maps.event.addListener(marker, 'click', function() {
+    
+    map.setZoom(i);
+    i = i+3;
+    map.setCenter(marker.getPosition());
+  });
+}
+
+function rotate90() {
+  var heading = map.getHeading() || 0;
+  map.setHeading(heading + 90);
+}
+
+function autoRotate() {
+  // Determine if we're showing aerial imagery
+  if (map.getTilt() != 0) {
+    window.setInterval(rotate90, 300);
+  }
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+<% end %>
+
+
+<!-- modal code -->
+<!-- modal code end-->
+
+<div class="showimage">            
+<ul class="bxslider">
+
+            <% @pictures.each do |p| %>
+
+            
+            <li>    
+              <%= image_tag p.avatar_url, class:'showimage'%>
+            </li>
+            <% end %>
+</ul>
+</div>
+<br>
+<br>
+<div class="show_page">
+
+<p>
+  <strong>Types of Property:</strong>
+  <%= @estate.ptype %>
+
+</p>
+
+<p>
+  <strong>Available for:</strong>
+  <%= @estate.stype %>
+</p>
+
+<% unless @estate.ptype =="flat"%>
+<% unless @estate.ptype =="appartment" %>
+<% unless @estate.ptype =="land" %>
+<p>
+  <strong>Levels:</strong>
+  <%= @estate.levels %>
+</p>
+<% end %>
+<% end %>
+<% end %>
+
+<p>
+  <strong>Area in squire meter:</strong>
+  <%= @estate.area %>
+</p>
+
+<% unless @estate.ptype =="land" %>
+<p>
+  <strong>Bedroom:</strong>
+  <%= @estate.bedroom %>
+</p>
+<% end %>
+
+<% unless @estate.ptype =="land" %>
+<p>
+  <strong>Hall:</strong>
+  <%= @estate.hall %>
+</p>
+<% end %>
+
+<% unless @estate.ptype =="land" %>
+<p>
+  <strong>Bathroom:</strong>
+  <%= @estate.bathroom %>
+</p>
+<% end %>
+
+<% unless @estate.ptype =="land" %>
+<p>
+  <strong>Date of built:</strong>
+  <%= @estate.built %>
+</p>
+<% end %>
+
+<p>
+  <strong>Address:</strong>
+  <%= @estate.address %>
+</p>
+
+
+
+<p>
+  <strong>Description</strong>
+  <%= @estate.feature %>
+</p>
+
+
+
+<p>
+  <strong>Price:</strong>
+  <%= @estate.price %>
+</p>
+
+<% javascript_tag do %>
+      var lat = <%= @estate.latitude %>
+      var lat = <%= @estate.longitude %>
+<% end %>
+<p>
+  <strong>Posted by:</strong>
+  <%= User.find(@estate.user_id).fname %> <%= User.find(@estate.user_id).lname %>
+</p>
+
+<% if current_user.present? && current_user.id == @estate.user_id %><%= link_to 'Edit', edit_estate_path(@estate), 'data-no-turbolink' => true %> |
+
+ <span class="item"><%= link_to 'delete', @estate, method: :delete, data: { confirm: 'Your post will be deleted. Contineu.. ?' } %> </span>
+ <% end %> 
+<%= link_to 'See all Property', estates_path %>
+
+
+</div>
+
+<div id="map-canvas" class="show_page"></div>
+
+
+<script>    
+  $(document).ready(function(){
+  slider = $('.bxslider').bxSlider(
+    {
+  auto: true,
+  autoControls: true,
+  speed: 1000,
+  easing: 'ease-out'
+
+}
+    );
+ 
+});
+</script>
+

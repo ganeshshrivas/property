@@ -1,0 +1,176 @@
+<div class="index_body">
+      <div class="column1">
+
+          <div class="left_box">
+              <div class="top_left_box">
+                </div>
+                <div class="center_left_box">
+                
+                <div class='index_search'>
+                <%= render 'search'%>
+                </div>
+
+
+
+                </div>
+
+            </div>
+            
+            
+ 
+          <div class="left_box">
+              <div class="top_left_box">
+                </div>
+                <div class="center_left_box">
+                  <div class="box_title"><span>Join</span> our newsletter:</div>
+                    
+                    
+                    <div class="form">
+                    <div class="form_row"><label class="left">Email: </label><input type="text" class="form_input"/></div>                    
+                    <div style="float:right; padding:10px 25px 0 0;">
+                    <input type="image" src="images/join.gif"/>
+                    </div>
+                    
+                    </div>
+                
+                
+                </div>
+                <div class="bottom_left_box">
+                </div>
+            </div> 
+ 
+ 
+          <div class="left_box">
+              <div class="top_left_box">
+                </div>
+                <div class="center_left_box">
+                  <div class="box_title"><span>Contact</span> information:</div>
+                    
+                    
+                    <div class="form">
+                    <div class="form_row">
+                      <img src="images/contact_envelope.gif" width="50" height="47" border="0" class="img_right" alt="" title="" />
+                        <div class="contact_information">
+                        Email: info@comapnyname.com<br />
+                        Telephone: 0234 789 90<br />
+                        Mobile:      234 345 234534<br />
+                        Fax:         34534 3456 3456(54)<br /><br />
+                        
+                        <span>www.companyname.com</span>
+                        </div>
+                    </div>                    
+                    </div>
+                
+                
+                </div>
+                <div class="bottom_left_box">
+                </div>
+            </div>  
+ 
+        
+        </div><!-- end of column one -->
+   
+
+
+
+
+
+    <div class="column4">
+    <div class="show_property">    
+<h1 id="start_index">Properties</h1>
+    <% @estates.each do |estate| %>
+    <div class="main">
+        <% @pictures = estate.pictures.all %> 
+        <div class="property_pic">     
+           <ul class="index_bxslider">
+            <% @pictures.each do |p|%>
+              <li><%= image_tag p.avatar_url(:thumb), class:"index_pic_size"%></li>
+            <% end %>
+            </ul>
+            
+
+             
+ <%= link_to 'Show', estate, 'data-no-turbolink' => true %>
+ <% if current_user.present? && estate.user_id == current_user.id  %> 
+ <%= link_to 'Edit', edit_estate_path(estate), 'data-no-turbolink' => true %> 
+      <% end %>
+      </div>
+
+    <div class="index_property_content">
+      <table class="pdetail">
+        <tr>
+          <td>Types of property
+          </td>
+          <td>:<%= estate.ptype %></td>
+        </tr>
+        <tr><td>For</td><td>: <%= estate.stype %></td></tr>
+        <% if estate.ptype =="villa"%>
+        <tr>
+          <td>no of levels in villa</td>
+          <td>: <%= estate.levels %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <td class="item1">Area in squore meter</td>
+          <td>: <%= estate.area %></td>
+        </tr>
+
+        <% unless estate.ptype =="land" %>
+        <tr>
+          <td class="item1">No of Bedrooms</td>
+          <td>: <%= estate.bedroom %></td>
+        </tr><% end %>
+        <% unless estate.ptype =="land" %>
+        <tr>
+          <td class="item1">Number of halls</td>
+          <td>:<%= estate.hall %></td>
+        </tr>
+        <% end %>
+        <% unless estate.ptype =="land" %>
+        <tr>
+          <td class="item1">Number of bathrooms</td>:
+          <td>: <%= estate.bathroom %></td>
+        </tr>
+        <% end %>
+        <% unless estate.ptype =="land" %>
+        <tr>
+          <td class="item1">Date of built</td>
+          <td>: <%= estate.built %></td>
+        </tr><% end %>
+        <tr>
+          <td class="item1">Price</td>
+          <td>: <%= estate.price %></td>
+        </tr>
+        <tr>
+          <td class="item1">Posted by:</td>
+          <td>:<%= User.find(estate.user_id).fname %> <%= User.find(estate.user_id).lname %></td>
+        </tr>
+        <tr>
+          <td class="item1">Address</td>
+          <td>: <%= estate.address %></td>
+        </tr>
+        </table>
+
+      </div>
+    </div>   
+
+ 
+    <% end %>
+<a href="#start_index" class="upArrow"><%= image_tag 'arrow-up.png', class:'upArrow'%></a>
+</div>
+</div>
+
+
+</div>
+<script>    
+  $(document).ready(function(){
+  slider = $('.index_bxslider').bxSlider(
+    {
+  auto: true,
+  autoControls: true,
+  easing: 'ease-out'
+}
+    );
+ 
+});
+</script>

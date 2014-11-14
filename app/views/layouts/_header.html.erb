@@ -1,0 +1,47 @@
+
+
+
+<div id="header">
+
+           
+       <div class="banner_adds"></div>    
+
+
+<div class="menu">
+
+<ul>
+<li><%= link_to 'Home', root_path, 'data-no-turbolink' => true %></li>
+<li><%= link_to 'index', estates_path, 'data-no-turbolink' => true %></li>
+
+
+<% if current_user.present? %>
+<li><a href="#">Add Property <!--[if IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+  <ul>
+    <%= form_for '', url: '/new_estate', method: :post   do |f| %>
+
+  <li><%= f.submit "Proceed",:class=>'type_sel', :name => 'ptype',  :value =>'villa' %></li>
+  <li><%= f.submit "Proceed",:class=>'type_sel', :name => 'ptype',  :value =>'flat' %></li>
+  <li><%= f.submit "Proceed",:class=>'type_sel', :name => 'ptype',  :value =>'appartment' %></li>
+  <li><%= f.submit "Proceed" ,:class=>'type_sel', :name => 'ptype',  :value =>'land' %></li>
+     <% end %>
+  </ul>
+</li>
+<% end %>
+
+<li><a href="#">About Us </a></li>
+<li><a href="#">Customers</a></li>
+
+<li><% if user_signed_in? %>
+<%= link_to 'Logout', destroy_user_session_path, method:
+          :delete %>
+<% else %>          
+<%= link_to 'Login', new_user_session_path%>
+<% end %></li>
+
+</ul>
+
+</div>
+
+
+</div>

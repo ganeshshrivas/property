@@ -1,0 +1,76 @@
+<h1>Villa</h1>
+<%= form_for(@estate, :html => { :multipart => true }) do |f| %>
+  <% if @estate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estate.errors.count, "error") %> prohibited this estate from being saved:</h2>
+
+      <ul>
+      <% @estate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+  <%= f.hidden_field :ptype, :value => 'villa' %>  
+  </div>
+
+
+  <div class="field">
+    <%= f.label :For %>
+    <%= f.select :stype, [['Sell','sell'],['Rent','rent']] %></div>
+
+  <div class="field">
+    <%= f.label :levels %><br>
+    <%= f.number_field :levels, min:'1', :required => true   %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.number_field :area, min:'0', :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bedroom %><br>
+    <%= f.number_field :bedroom, min:'0', :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hall %><br>
+    <%= f.number_field :hall, min:'0', :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bathroom %><br>
+    <%= f.number_field :bathroom, min:'0', :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :built %><br>
+    <%= f.date_select :built, :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Desciption %><br>
+    <%= f.text_field :feature, pattern:"[a-zA-Z0-9]{30,}", title:"Minmimum 30 letters or numbers.", :required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price, min:'0', :required => true %>
+  </div>
+
+
+
+   
+   <%= render :partial => "mapshow", :locals=>{:f=>f, :@estate=>@estate} %>
+
+  <div class="actions">
+    <%= f.submit :'Submit' %>
+  </div>
+
+<% end %>
+
+

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ptype: MyString
+  stype: MyString
+  levels: 1
+  area: 1
+  bedroom: 1
+  hall: 1
+  bathroom: 1
+  built: 2014-09-25
+  feature: MyString
+  price: 1
+  user_id: 
+
+two:
+  ptype: MyString
+  stype: MyString
+  levels: 1
+  area: 1
+  bedroom: 1
+  hall: 1
+  bathroom: 1
+  built: 2014-09-25
+  feature: MyString
+  price: 1
+  user_id: 

@@ -1,0 +1,50 @@
+
+
+<%= link_to 'See all', estates_path %>
+
+<h1> Properties of <%= current_user.fname %> <%= current_user.lname %></h1>
+
+    <% @estates.each do |estate| %>
+       <div class="main">
+    <table>
+    <tr><td>
+          <table> 
+        <tr><td><span class="item">Types of property</td><td>:<%= estate.ptype %></span></td></tr><tr><td>       
+        <span class="item">For </td><td>: <%= estate.stype %></span></td></tr><% unless estate.ptype =="flat"%>
+<% unless estate.ptype =="appartment" %>
+<% unless estate.ptype =="land" %>
+<tr><td>
+        <span class="item">no of levels in villa</td><td>: <%= estate.levels %></span></td></tr><% end %>
+<% end %>
+<% end %>
+<tr><td>
+        <span class="item">Area in squore meter</td><td>: <%= estate.area %></span></td></tr><% unless estate.ptype =="land" %><tr><td>
+        <span class="item">No of Bedrooms</td><td>: <%= estate.bedroom %></span></td></tr><% end %><% unless estate.ptype =="land" %><tr><td>
+        <span class="item">Number of halls</td><td>:<%= estate.hall %></span></td></tr><% end %><% unless estate.ptype =="land" %><tr><td>
+        <span class="item">Number of bathrooms</td>:<td>: <%= estate.bathroom %></span></td></tr><% end %><% unless estate.ptype =="land" %><tr><td>
+        <span class="item">Date of built</td><td>: <%= estate.built %></span></td><% end %></tr><tr><td>
+        <span class="item">Destription about property</td><td>: <%= estate.feature %></span></td></tr><tr>
+        <td>
+        <span class="item">Price</td><td>: <%= estate.price %></span></td></tr><tr><td>
+        <span class="item">Posted by:</td><td>:<%= User.find(estate.user_id).fname %> <%= User.find(estate.user_id).lname %></span></td></tr>
+        </table>
+        <td><td>
+        <% @pictures = estate.pictures.all %>      
+        <% @pictures.each do |p| %>
+        <span class="image"><%= image_tag p.avatar_url,  :size => "400x250" %></span>
+        <% end %>
+        </td></tr>
+      </table>
+        <span class="item"><%= link_to 'Show', estate %></span>
+      
+      <% if estate.user_id == current_user.id  %> 
+      <br><span class="item"> <%= link_to 'Edit', edit_estate_path(estate) %> </span>
+       <span class="item"><%= link_to 'delete', estate, method: :delete, data: { confirm: 'Your post will be deleted. Contineu.. ?' } %> </span>
+      <% end %>
+       <hr>
+      </div>
+        <% end %>
+  
+<br>
+
+<%= link_to 'See all', estates_path %>
