@@ -113,45 +113,64 @@ transition: all 1s ease;
   height: 350px;
  }
 
-.infoWindow
-{
-  height: 200px;
-  width: 200px;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-
-}
 
 
 
 
 /* info window content */
 
+.infoWindow
+{
+  width: 300px;
+  height: 200px;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+
+}
+
 .info_pic{
   width: 100%;
-  height: 100%;
+#  height: 80%;
+overflow: hidden;
   position: absolute;
+  z-index: 1;
   margin: 0px;
   padding: 0px;
 }
 
 .mapimage{
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 
 
  .bodyContent{
-  margin-top: 50%;
-  width: 200px;
-  height: 50%;
-  font-size: 10px;
-  background: rgba(200,200,200,.5);
+  margin-top: 40%;
+  width: 100%;
+  height: auto;
+#  font-size: 10px;
+#  background: rgba(200,200,200,.5);
   position: absolute;
   color: rgba(0,0,0,1);
-  overflow: hidden;
+  z-index: 3;
+  overflow: auto;
  }
+
+.bodyContent table{
+  
+  color: rgba(20,20,20,1);
+  background: rgba(200,200,200,.5);
+  border-spacing: 2px;
+  
+}
+
+.bodyContent table:hover{
+   color: rgba(200,200,200,1);
+   background: rgba(20,20,20,.5);
+  }
+
 
 /* info window content end */
 
@@ -359,6 +378,15 @@ table{
 #    box-shadow: 10px 10px 5px #888888;
 #    max-height: 300px;
     font-size: auto;
+#    min-height: 400px;
+#    min-width: 400px;
+
+}
+.main table{
+  height: auto;
+  vertical-align: bottom;
+    padding-top: auto;
+
 }
 
 .index_pic_size{
@@ -371,6 +399,7 @@ width: 50%;
 float: left;
 position: relative;
 height: 100%;
+vertical-align: bottom;
 }
 
 .property_pic

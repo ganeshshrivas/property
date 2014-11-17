@@ -76,6 +76,10 @@
 
 
     <div class="column4">
+
+
+
+
     <div class="show_property">    
 <h1 id="start_index">Properties</h1>
     <% @estates.each do |estate| %>
@@ -99,56 +103,52 @@
     <div class="index_property_content">
       <table class="pdetail">
         <tr>
-          <td>Types of property
+          <td>Types
           </td>
-          <td>:<%= estate.ptype %></td>
+          <td>:<%= estate.ptype.titleize %></td>
         </tr>
         <tr><td>For</td><td>: <%= estate.stype %></td></tr>
         <% if estate.ptype =="villa"%>
         <tr>
-          <td>no of levels in villa</td>
+          <td>Total floor</td>
           <td>: <%= estate.levels %></td>
         </tr>
         <% end %>
         <tr>
-          <td class="item1">Area in squore meter</td>
+          <td class="item1">Area</td>
           <td>: <%= estate.area %></td>
         </tr>
 
         <% unless estate.ptype =="land" %>
         <tr>
-          <td class="item1">No of Bedrooms</td>
+          <td class="item1">Bedrooms</td>
           <td>: <%= estate.bedroom %></td>
         </tr><% end %>
         <% unless estate.ptype =="land" %>
         <tr>
-          <td class="item1">Number of halls</td>
+          <td class="item1">Halls</td>
           <td>:<%= estate.hall %></td>
         </tr>
         <% end %>
         <% unless estate.ptype =="land" %>
         <tr>
-          <td class="item1">Number of bathrooms</td>:
+          <td class="item1">Bathrooms</td>:
           <td>: <%= estate.bathroom %></td>
         </tr>
         <% end %>
-        <% unless estate.ptype =="land" %>
-        <tr>
-          <td class="item1">Date of built</td>
-          <td>: <%= estate.built %></td>
-        </tr><% end %>
         <tr>
           <td class="item1">Price</td>
           <td>: <%= estate.price %></td>
         </tr>
         <tr>
-          <td class="item1">Posted by:</td>
+          <td class="item1">Owner</td>
           <td>:<%= User.find(estate.user_id).fname %> <%= User.find(estate.user_id).lname %></td>
         </tr>
-        <tr>
-          <td class="item1">Address</td>
+
+        <!--tr>
+          <td class="item1">Address </td>
           <td>: <%= estate.address %></td>
-        </tr>
+        </tr-->
         </table>
 
       </div>

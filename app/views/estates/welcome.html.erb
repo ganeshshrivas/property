@@ -24,7 +24,15 @@ body{
   <%= render 'search'%> 
 </div>
 
+
 <div id="map-canvas" ></div>
+
+
+<!-- modal code -->
+<!-- Button trigger modal -->
+<!-- modal code end-->
+
+
 
 
 <script>
@@ -34,8 +42,8 @@ var LocationData = [
      <%= estate.longitude %>,
      '<%= estate.ptype %>', 
      "<h1><%=estate.ptype%></h1><table><% unless estate.ptype =='land' %><tr><td><strong>Bedrooms</strong></td><td>:<%= estate.bedroom %></td></tr><tr><td><strong>Halls</strong></td><td>:<%= estate.hall %></td></tr><% end %><tr><td><strong>Area</strong></td><td>:<%= estate.area %>squire meter</td></tr> </table> ", 
-     '',
-     '<a HREF ="estates/<%= estate.id%>" data-no-turbolink=true>Details</a>',
+     "<table><tr><% unless estate.ptype =='land' %><th>Badroom</th><th>Halls</th><% end %><th>Area</th></tr><tr><% unless estate.ptype =='land' %><td><%= estate.bedroom %></td><td><%= estate.hall %></td><% end %><td><%= estate.area %></td> </tr></table>'",
+     '<a HREF ="estates/<%= estate.id%>" data-no-turbolink=true><%=estate.ptype%></a>',
      '<% if estate.pictures.present? %><% estate.pictures.each do |pic| %><li><%= image_tag(pic.avatar.thumb,:class=>"mapimage") %></li> <% end %> <% end %>'
      ],
     <% end %>
@@ -72,7 +80,7 @@ function initialize()
             map: map,
         });
 
-     google.maps.event.addListener(marker, 'click', (function(map, mm, tt, pic, link, imag) {
+     google.maps.event.addListener(marker, 'click', (function(map, mm, oldtt, tt, link, imag) {
     return function() {
           var ttstring = '<div class="infoWindow">'+'<div class="info_pic">'+'<ul class="bxslider">'+ imag+'</ul>' + '</div>' + '<div class="bodyContent">'+ link+ tt +'</div>'+'</div>';
         
